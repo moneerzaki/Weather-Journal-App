@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <header>
+        <div id="logo">
+            M's Weather Journal
+        </div>
+        <nav id="nav-items">
+            <ul>
+                <li class="nav-item" id="home-nav-item" href="#home">Home</li>
+                <li class="nav-item" id="contact">Contact</li>
+            </ul>
+        </nav>
+    </header>
+    <div id="home">
+        <!-- <iframe src="https://assets.pinterest.com/ext/embed.html?id=543950461256567503"      frameborder="0" scrolling="no" autoplay></iframe> -->
+        <p>Home Page</p>
+    </div>
+    <div id="user-part">
+        <div id="container">
+            <textarea class="cont-element" id="userinput" placeholder="type here"></textarea>
+            <button class="cont-element" id="submit">Submit</button>
+        </div>
+    </div>
+
+    <script src="JS/app.js"></script>
+    <script src="JS/server.js"></script>
 </body>
 </html>
