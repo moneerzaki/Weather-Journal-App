@@ -1,12 +1,12 @@
 :root{
-    --Web-color: rgba(47, 255, 0, 0.15);
+    --Web-color: rgba(18, 96, 0, 0.15);
 }
 
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    overflow: auto;
+    /* overflow: auto; */
     scroll-behavior: smooth;
 }
 
@@ -31,7 +31,7 @@ header{
 }
 
 #nav-items{
-    width: 30%;
+    width: 20%;
 
 }
 #nav-items ul{
@@ -44,8 +44,13 @@ header{
 #nav-items ul li{
     text-decoration: none;
     cursor: pointer;
+    transition: ease-in-out 0.1s;
 }
 
+#nav-items ul li:hover{
+    /* background-color: rgb(128, 128, 128, 0.3); */
+    transform: scale(1.3);
+}
 
 #home{
     width: 100%;
@@ -80,15 +85,54 @@ header{
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
+
 }
 #container{
-    margin:auto;
+    /* margin:auto; */
     width:30vw;
     height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#userinputZIP{
+    width: 100%;
+    /* grid-row-start: 20; */
+    /* columns: 40; */
+}
+#userinputFeel{
+    width: 100%;
 }
 
+#submit{
+    height: 20%;
+    width: 30%;
+    background-color: var(--Web-color);
+    font-weight: bold;
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: ease-in-out 0.1s;
+
+}
+#submit:hover{
+    transform: scale(1.3);
+}
+
+#results{
+    width: 30vw;
+    height: 30vh;
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
 
 
 @media(orientation: portrait)
