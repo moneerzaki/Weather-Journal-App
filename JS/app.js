@@ -8,7 +8,7 @@ let city;
 let newDate;
 let description; 
 let degree; 
-let feeling; 
+let feeling;
 
 // defining elements in the web
 const data1  = document.querySelector('#data1'); // city name corresponding to the zip code
@@ -65,7 +65,17 @@ const getWeather = async (baseURL, ZIPcode, key)=>{
   }
 }
 
-
+const getData = async (url ='') =>
+{
+  try{
+    const res = await fetch(url);
+    const data = await res.json();
+    return data;
+  }
+  catch(error){
+    console.log("error ", error);
+  }
+}
 
 
 
