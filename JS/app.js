@@ -2,36 +2,37 @@ const baseURL = "https://api.openweathermap.org/data/2.5/weather?zip=";
 const apiKey = "&APPID=85c0955723ea8d8ca16a480fd439457a&units=imperial";
 
 // routes (get, post requests)
-const postWeatherData = async ( url = '', data = {})=>
-{
-    console.log(data);
-    const response = await fetch( url, {
-                                        method: 'POST', 
-                                        credentials: 'same-origin',
-                                        headers: {'Content-Type': 'application/json',},
-                                        // Body data type must match "Content-Type" header        
-                                        body: JSON.stringify(data), 
-                                        }
-);
-      try {
-        const newData = await response.json();
-        console.log(newData);
-        return newData;
-      }catch(error) {
-      console.log("error", error);
-      }
-}
+// const postWeatherData = async ( url = '', data = {})=>
+// {
+//     console.log(data);
+//     const response = await fetch( url, {
+//                                         method: 'POST', 
+//                                         credentials: 'same-origin',
+//                                         headers: {'Content-Type': 'application/json',},
+//                                         // Body data type must match "Content-Type" header        
+//                                         body: JSON.stringify(data), 
+//                                         }
+//     );
+//       try {
+//         const newData = await response.json();
+//         console.log(newData);
+//         return newData;
+//       }catch(error) {
+//       console.log("error", error);
+//       }
+// }
+  
 
-const getWeatherData = async (url = '') =>
-{
-  try{
-    const res = await fetch(url);
-    const data = res.json();
-    return data; 
-  }
-  catch(error)
-  {console.log("error", error);}
-}
+// const getWeatherData = async (url = '') =>
+// {
+//   try{
+//     const res = await fetch(url);
+//     const data = res.json();
+//     return data; 
+//   }
+//   catch(error)
+//   {console.log("error", error);}
+// }
 
 
 
@@ -84,14 +85,14 @@ const getWeather = async (baseURL, ZIPcode, key)=>{
     console.log(degree);
     console.log(feeling);
 
-    await postWeatherData('/',{city: city, newDate: newDate, description:description, degree:degree, feeling:feeling });
-    const ServerData = await getWeatherData('/');
+    // await postWeatherData('http://localhost:3000/',{city: city, newDate: newDate, description:description, degree:degree, feeling:feeling });
+    // const ServerData = getWeatherData('/');
 
-    data1.innerHTML = `city: ${ServerData.city}`;
-    data2.innerHTML = `Date: ${ServerData.newDate}`;
-    data3.innerHTML = `weather is: ${ServerData.description}`;
-    data4.innerHTML = `degree: ${ServerData.degree}`;
-    data5.innerHTML = `User Feeling: ${ServerData.feeling}`;
+    data1.innerHTML = `city: ${city}`;
+    data2.innerHTML = `Date: ${newDate}`;
+    data3.innerHTML = `weather is: ${description}`;
+    data4.innerHTML = `degree: ${degree}`;
+    data5.innerHTML = `User Feeling: ${feeling}`;
     // console.log(data);
     return data;
   }  catch(error) {
