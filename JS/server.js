@@ -9,11 +9,11 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
-// app.use(express.static('express'));
+app.use(express.static('/'));
 
 
 // global variables.
-let Data =[];
+let Data = {};
 
 // starting server connection. 
 const port = 3000; 
@@ -21,9 +21,13 @@ app.listen(port, ()=>{console.log(`connected to server at port ${port}`)});
 
 // routes 
 app.get('/', (req, res)=>{
+    console.log("got successfully");
+    console.log(Data);
     res.send(Data);
 })
 
 app.post('/', (req, res)=>{
-    Data.push(req.body);
+    // Data.push(req.body);
+    Data = req.body;
+    console.log("posted seccessfully");
 })
