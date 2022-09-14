@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static('/'));
+app.use(express.static('/Website'));
 
 
 // global variables.
@@ -21,10 +21,10 @@ app.listen(port, ()=>{console.log(`connected to server at port ${port}`)});
 
 // routes 
 app.get('/', (req, res)=>{
-    console.log("got successfully");
-    console.log(Data);
+    // console.log("got successfully");
+    // console.log(Data);
     // console.log(Data.body.city);
-    console.log(Data.city);
+    // console.log(Data.city);
     res.send(Data);
 })
 
@@ -35,8 +35,8 @@ app.post('/', (req, res)=>{
     Data['citnewDatey'] = req.body.newDate;
     Data['description'] = req.body.description;
     Data['degree'] = req.body.degree;
-    Data['feeling'] = req.body.feeling;
+    Data['UserFeeling'] = req.body.UserFeeling;
     // console.log(Data);
-    console.log("posted seccessfully");
+    // console.log("posted seccessfully");
 
 })

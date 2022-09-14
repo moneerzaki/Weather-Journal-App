@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> -->
 
@@ -24,7 +24,8 @@
     <nav id="nav-items">
         <ul>
             <li class="nav-item" id="home-nav-item" href="#home">Home</li>
-            <li class="nav-item" id="contact">Contact</li>
+            <li class="nav-item" id="weather-nav-item" href="#user-part">Weather</li>
+            <li class="nav-item" id="contact-nav-item" href="contact">Contact</li>
         </ul>
     </nav>
 
@@ -34,8 +35,8 @@
     </div>
     <div id="user-part">
         <div id="container">
-            <textarea class="cont-element" id="userinputZIP" placeholder="type ZIP code.">85224</textarea>
-            <textarea class="cont-element" id="userinputFeel" placeholder="How are you feeling now">Great</textarea>
+            <textarea class="cont-element" id="userinputZIP" placeholder="type ZIP code."></textarea>
+            <textarea class="cont-element" id="userinputFeel" placeholder="How are you feeling now"></textarea>
             <button class="cont-element" id="submit">Submit</button>
         </div>
         <div id="results">
@@ -47,7 +48,7 @@
         </div>
     </div>
 
-    <script src="JS/app.js"></script>
-    <script src="JS/server.js"></script>
+    <script src="app.js"></script>
+    <script src="../server.js"></script>
 </body>
 </html>

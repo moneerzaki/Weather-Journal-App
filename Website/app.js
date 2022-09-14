@@ -1,5 +1,7 @@
+// Personal API Key for OpenWeatherMap API
 const baseURL = "https://api.openweathermap.org/data/2.5/weather?zip=";
-const apiKey = "&APPID=85c0955723ea8d8ca16a480fd439457a&units=imperial";
+const apiKey = "&APPID=ffa9c1595c9fd044e860eb766e798b78&units=imperial";
+
 
 // routes (get, post requests)
 const postWeatherData = async ( url = '', data = {})=>
@@ -9,13 +11,13 @@ const postWeatherData = async ( url = '', data = {})=>
                                         method: 'POST', 
                                         credentials: 'same-origin',
                                         headers: {'Content-Type': 'application/json',},
-                                        // Body data type must match "Content-Type" header        
+                                        // Body data type must match "Content-Type" header
                                         body: JSON.stringify({
                                           city: data.city,
                                           newDate: data.newDate,
                                           description: data.description,
                                           degree: data.degree,
-                                          feeling: data.feeling
+                                          UserFeeling: data.UserFeeling
                                         }), 
                                         }
     );
@@ -33,7 +35,7 @@ const getWeatherData = async (url = '') =>
 {
   try{
     const res = await fetch(url);
-    const data = res.json();
+    const data = await res.json();
     return data; 
   }
   catch(error)
@@ -47,7 +49,7 @@ let city;
 let newDate;
 let description; 
 let degree; 
-let feeling;
+// let feeling;
 
 // defining elements in the web
 const data1  = document.querySelector('#data1'); // city name corresponding to the zip code
@@ -93,14 +95,16 @@ function performAction(e){
             console.log(degree);
             console.log(UserFeeling);
 
-            postWeatherData('http://localhost:3000/',{city: city, newDate: newDate, description:description, degree:degree, feeling:feeling });
-            // const ServerData = getWeatherData('http://localhost:3000/');
+            postWeatherData('http://localhost:3000/',{city: city, newDate: newDate, description:description, degree:degree, UserFeeling:UserFeeling });
+            const ServerData = await getWeatherData('http://localhost:3000/');
 
-            data1.innerHTML = `city: ${city}`;
-            data2.innerHTML = `Date: ${newDate}`;
-            data3.innerHTML = `weather is: ${description}`;
-            data4.innerHTML = `degree: ${degree}`;
-            data5.innerHTML = `User Feeling: ${UserFeeling}`;
+            // console.log(ServerData);
+
+            data1.innerHTML = `city: ${ServerData.city}`;
+            data2.innerHTML = `Date: ${ServerData.newDate}`;
+            data3.innerHTML = `weather is: ${ServerData.description}`;
+            data4.innerHTML = `degree: ${ServerData.degree}`;
+            data5.innerHTML = `User Feeling: ${ServerData.UserFeeling}`;
             // console.log(data);
             return data;
           }  catch(error) {
