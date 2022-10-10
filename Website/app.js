@@ -20,6 +20,7 @@ const postWeatherData = async ( url = '', data = {})=>
                                           UserFeeling: data.UserFeeling
                                         }), 
                                         }
+                                        
     );
       try {
         const newData = await response.json();
