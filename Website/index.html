@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> -->
+
+    <title> Document </title>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            M's Weather Journal
+        </div>
+        <div id="nav-more-icon">
+            <span class="material-symbols-outlined">menu</span>
+        </div>
+    </header>
+
+    <nav id="nav-items">
+        <ul>
+            <li class="nav-item" id="home-nav-item" href="#home">Home</li>
+            <li class="nav-item" id="weather-nav-item" href="#user-part">Weather</li>
+            <li class="nav-item" id="contact-nav-item" href="contact">Contact</li>
+        </ul>
+    </nav>
+
+    <div id="home">
+        <!-- <iframe src="https://assets.pinterest.com/ext/embed.html?id=543950461256567503"      frameborder="0" scrolling="no" autoplay></iframe> -->
+        <p>Home Page</p>
+    </div>
+    <div id="user-part">
+        <div id="container">
+            <textarea class="cont-element" id="userinputZIP" placeholder="type ZIP code."></textarea>
+            <textarea class="cont-element" id="userinputFeel" placeholder="How are you feeling now"></textarea>
+            <button class="cont-element" id="submit">Submit</button>
+        </div>
+        <div id="results">
+            <div class="result" id="data1" ></div>
+            <div class="result" id="data2" ></div>
+            <div class="result" id="data3" ></div>
+            <div class="result" id="data4" ></div>
+            <div class="result" id="data5" ></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="../server.js"></script>
+</body>
+</html>
