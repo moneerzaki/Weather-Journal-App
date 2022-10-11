@@ -14,7 +14,7 @@ const postWeatherData = async ( url = '', data = {})=>
                                         // Body data type must match "Content-Type" header
                                         body: JSON.stringify({
                                           city: data.city,
-                                          newDate: data.newDate,
+                                          citnewDatey : data.citnewDatey ,
                                           description: data.description,
                                           degree: data.degree,
                                           UserFeeling: data.UserFeeling
@@ -47,7 +47,7 @@ const getWeatherData = async (url = '') =>
 
 // global variables.
 let city;
-let newDate;
+let citnewDatey ;
 let description; 
 let degree; 
 // let feeling;
@@ -66,7 +66,7 @@ const navMoreSymb = document.querySelector('.material-symbols-outlined');
 const navItems = document.querySelector('#nav-items');
 
 let d = new Date();
-newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
+citnewDatey  = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 let UserFeeling;
 
 
@@ -96,13 +96,13 @@ function performAction(e){
             console.log(degree);
             console.log(UserFeeling);
 
-            postWeatherData('http://localhost:3000/',{city: city, newDate: newDate, description:description, degree:degree, UserFeeling:UserFeeling });
-            const ServerData = await getWeatherData('http://localhost:3000/');
+            postWeatherData('http://localhost:3000/send_weather_data',{city: city, citnewDatey : citnewDatey , description:description, degree:degree, UserFeeling:UserFeeling });
+            const ServerData = await getWeatherData('http://localhost:3000/get_weather_data');
 
             // console.log(ServerData);
 
             data1.innerHTML = `city: ${ServerData.city}`;
-            data2.innerHTML = `Date: ${ServerData.newDate}`;
+            data2.innerHTML = `Date: ${ServerData.citnewDatey }`;
             data3.innerHTML = `weather is: ${ServerData.description}`;
             data4.innerHTML = `degree: ${ServerData.degree}`;
             data5.innerHTML = `User Feeling: ${ServerData.UserFeeling}`;

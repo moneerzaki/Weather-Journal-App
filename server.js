@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static('/Website'));
+app.use(express.static('./Website'));
 
 
 // global variables.
@@ -20,7 +20,7 @@ const port = 3000;
 app.listen(port, ()=>{console.log(`connected to server at port ${port}`)});
 
 // routes 
-app.get('/', (req, res)=>{
+app.get('/get_weather_data', (req, res)=>{
     // console.log("got successfully");
     // console.log(Data);
     // console.log(Data.body.city);
@@ -28,15 +28,15 @@ app.get('/', (req, res)=>{
     res.send(Data);
 })
 
-app.post('/', (req, res)=>{
+app.post('/send_weather_data', (req, res)=>{
     
     // Data.push(req.body);
+    console.log(Data);
     Data['city'] = req.body.city;
-    Data['citnewDatey'] = req.body.newDate;
+    Data['citnewDatey'] = req.body.citnewDatey ;
     Data['description'] = req.body.description;
     Data['degree'] = req.body.degree;
     Data['UserFeeling'] = req.body.UserFeeling;
-    // console.log(Data);
     // console.log("posted seccessfully");
 
 })
